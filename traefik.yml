@@ -1,0 +1,34 @@
+api:
+  dashboard: true
+
+entryPoints:
+  http:
+    address: ":80"
+  https:
+    address: ":443"
+#  metrics:
+#    address: ":8082"
+#
+#metrics:
+#  prometheus:
+#    entryPoint: metrics
+
+#http:
+#  routers:
+#    http-catchall:
+#      rule: HostRegexp(`{host:.+}`)
+#      entrypoints:
+#        - http
+#      middlewares:
+#        - redirect-to-https
+#    # Define a connection between requests and services
+#  middlewares:
+#    redirect-to-https:
+#      redirectScheme:
+#        scheme: https
+#        permanent: false
+
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedByDefault: false
